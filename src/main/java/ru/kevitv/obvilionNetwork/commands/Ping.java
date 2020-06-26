@@ -22,7 +22,7 @@ import ru.kevitv.obvilionNetwork.utils.Config;
 import ru.kevitv.obvilionNetwork.utils.Lang;
 import ru.kevitv.obvilionNetwork.bot.Command;
 import ru.kevitv.obvilionNetwork.bot.GuildInfo;
-import ru.kevitv.obvilionNetwork.bot.Main;
+import ru.kevitv.obvilionNetwork.bot.Bot;
 
 import java.awt.*;
 
@@ -39,7 +39,7 @@ public class Ping extends Command {
                 EmbedBuilder eb = new EmbedBuilder();
                 eb.setTitle(Lang.get("ping.title", guildInfo.lang), null);
                 eb.setColor(new Color(19, 167, 246));
-                eb.setThumbnail(Main.bot.getSelfUser().getAvatarUrl());
+                eb.setThumbnail(Bot.bot.getSelfUser().getAvatarUrl());
                 eb.addField(Lang.get("ping.api", guildInfo.lang), ping+" "+Lang.get("time.ms", guildInfo.lang)+" \uD83D\uDCE8", false);
                 eb.addField(Lang.get("ping.jda", guildInfo.lang), Config.ping+" "+Lang.get("time.ms", guildInfo.lang)+" \uD83D\uDC99", false);
                 eb.addField(Lang.get("ping.db", guildInfo.lang), Config.dbPing+" "+Lang.get("time.ms", guildInfo.lang)+" \uD83D\uDDC3", false);

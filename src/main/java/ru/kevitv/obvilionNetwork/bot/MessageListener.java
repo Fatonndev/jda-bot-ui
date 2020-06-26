@@ -37,7 +37,7 @@ public class MessageListener extends ListenerAdapter {
             String[] args = event.getMessage().getContentRaw()
                     .split(" ");
 
-            for (Command command : Main.commands) {
+            for (Command command : Bot.commands) {
                 if(message.startsWith(guildInfo.prefix + command.getName())) {
                     command.main(event, guildInfo, args);
                 }

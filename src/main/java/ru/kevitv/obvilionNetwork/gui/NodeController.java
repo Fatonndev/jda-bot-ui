@@ -19,7 +19,7 @@ package ru.kevitv.obvilionNetwork.gui;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import net.dv8tion.jda.api.entities.Guild;
-import ru.kevitv.obvilionNetwork.bot.Main;
+import ru.kevitv.obvilionNetwork.bot.Bot;
 
 import java.util.Objects;
 
@@ -37,8 +37,8 @@ public class NodeController {
         Guild guild = NodesGuilds.get();
 
         // Дата добавления бота на сервер
-        date.setText(String.valueOf(Objects.requireNonNull(guild.getMember(Main.bot.getSelfUser())).getTimeJoined()).substring(0,
-                String.valueOf(Objects.requireNonNull(guild.getMember(Main.bot.getSelfUser())).getTimeJoined()).length() - 14));
+        date.setText(String.valueOf(Objects.requireNonNull(guild.getMember(Bot.bot.getSelfUser())).getTimeJoined()).substring(0,
+                String.valueOf(Objects.requireNonNull(guild.getMember(Bot.bot.getSelfUser())).getTimeJoined()).length() - 14));
 
         // Обработка кол-ва участников
         String memb = String.valueOf(guild.getMembers().size());

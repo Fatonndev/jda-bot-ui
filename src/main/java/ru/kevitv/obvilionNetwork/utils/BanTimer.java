@@ -17,7 +17,7 @@
 package ru.kevitv.obvilionNetwork.utils;
 
 import ru.kevitv.obvilionNetwork.Database;
-import ru.kevitv.obvilionNetwork.bot.Main;
+import ru.kevitv.obvilionNetwork.bot.Bot;
 
 public class BanTimer {
     Thread th;
@@ -26,7 +26,7 @@ public class BanTimer {
         th = new Thread(() -> {
             try {
                 Thread.sleep(timeSeconds * 1000);
-                Main.bot.getGuildById(guildId).unban(userId).queue();
+                Bot.bot.getGuildById(guildId).unban(userId).queue();
                 Database.createUpdateRequest("DELETE FROM bans WHERE (id='"+ userId +"' AND guildId='"+ guildId +"');");
             } catch (InterruptedException ignored) {
 

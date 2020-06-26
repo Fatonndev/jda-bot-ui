@@ -16,7 +16,9 @@
 
 package ru.kevitv.obvilionNetwork;
 
+import ru.kevitv.obvilionNetwork.bot.Bot;
 import ru.kevitv.obvilionNetwork.gui.ConsoleOutput;
+import ru.kevitv.obvilionNetwork.gui.GUI;
 import ru.kevitv.obvilionNetwork.gui.NodesUpdate;
 import ru.kevitv.obvilionNetwork.utils.Config;
 import ru.kevitv.obvilionNetwork.utils.Lang;
@@ -39,7 +41,7 @@ public class Main {
 
         Config.init();
         Lang.init();
-        ru.kevitv.obvilionNetwork.bot.Main.main();
+        Bot.main();
 
         Database.createUpdateRequest("CREATE TABLE IF NOT EXISTS guilds (id VARCHAR(20), premium VARCHAR(20), prefix VARCHAR(20), lang VARCHAR(20), maxwarns INT)");
         Database.createUpdateRequest("CREATE TABLE IF NOT EXISTS users (id VARCHAR(20), guildId VARCHAR(20), xp INT, money INT, warns INT)");
@@ -51,7 +53,7 @@ public class Main {
 
                     if (args.length == 0 || !args[0].equals("nogui")) {
                         NodesUpdate.initialize();
-                        ru.kevitv.obvilionNetwork.gui.Main.main(args);
+                        GUI.main(args);
                     }
                     th.interrupt();
                 } catch (InterruptedException ignored) {

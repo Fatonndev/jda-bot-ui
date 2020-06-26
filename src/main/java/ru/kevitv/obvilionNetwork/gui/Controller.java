@@ -28,7 +28,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Arc;
 import ru.kevitv.obvilionNetwork.utils.Config;
-import ru.kevitv.obvilionNetwork.bot.Main;
+import ru.kevitv.obvilionNetwork.bot.Bot;
 
 import java.io.*;
 import java.net.URL;
@@ -94,7 +94,7 @@ public class Controller implements Initializable {
         nodes.clear();
 
         // Добавляем элементы на экран
-        for (int i = 0; i < Main.bot.getGuilds().size(); i++) {
+        for (int i = 0; i < Bot.bot.getGuilds().size(); i++) {
             try {
 
                 if(i >= Config.maxNodes) return;
@@ -120,8 +120,8 @@ public class Controller implements Initializable {
             }
         }
 
-        totalPlayers.setText(String.valueOf(Main.bot.getUsers().size()));
-        totalServers.setText(String.valueOf(Main.bot.getGuilds().size()));
+        totalPlayers.setText(String.valueOf(Bot.bot.getUsers().size()));
+        totalServers.setText(String.valueOf(Bot.bot.getGuilds().size()));
         premiumServers.setText("0");
 
         long time = (System.currentTimeMillis() - Config.startTime)/1000/60;

@@ -17,7 +17,7 @@
 package ru.kevitv.obvilionNetwork.gui;
 
 import net.dv8tion.jda.api.entities.Guild;
-import ru.kevitv.obvilionNetwork.bot.Main;
+import ru.kevitv.obvilionNetwork.bot.Bot;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +30,7 @@ public class NodesGuilds {
     public static void initialize() {
         number = -1;
         guilds = new ArrayList<>();
-        guilds = Main.bot.getGuilds();
+        guilds = Bot.bot.getGuilds();
     }
 
     public static Guild get() {

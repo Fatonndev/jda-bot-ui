@@ -17,7 +17,7 @@
 package ru.kevitv.obvilionNetwork.utils;
 
 import ru.kevitv.obvilionNetwork.Database;
-import ru.kevitv.obvilionNetwork.bot.Main;
+import ru.kevitv.obvilionNetwork.bot.Bot;
 
 import java.util.List;
 
@@ -28,7 +28,7 @@ public class LoadBans {
             List<String> userInfo = users.get(i);
 
             if(Long.parseLong(userInfo.get(3)) >= System.currentTimeMillis() / 1000) {
-                Main.bot.getGuildById(userInfo.get(1)).unban(userInfo.get(0));
+                Bot.bot.getGuildById(userInfo.get(1)).unban(userInfo.get(0));
             } else {
                 long time = Long.parseLong(userInfo.get(3)) - (System.currentTimeMillis() / 1000);
                 new BanTimer(time, userInfo.get(1), userInfo.get(0));

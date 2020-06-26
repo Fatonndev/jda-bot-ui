@@ -19,7 +19,7 @@ package ru.kevitv.obvilionNetwork.gui;
 import javafx.application.Platform;
 import javafx.scene.chart.XYChart;
 import ru.kevitv.obvilionNetwork.utils.Config;
-import ru.kevitv.obvilionNetwork.bot.Main;
+import ru.kevitv.obvilionNetwork.bot.Bot;
 
 import java.io.FileNotFoundException;
 import java.time.LocalDateTime;
@@ -51,7 +51,7 @@ public class NodesUpdate {
             try {
 
                 while (true) {
-                    Config.ping = Main.bot.getGatewayPing();
+                    Config.ping = Bot.bot.getGatewayPing();
 
                     TimeUnit.SECONDS.sleep(Config.FastUpdateTime);
                     Platform.runLater(() -> {
