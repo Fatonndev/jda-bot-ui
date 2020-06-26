@@ -32,7 +32,7 @@ public class Lang {
         if (!dir1.exists()) dir1.mkdir();
 
         for (String[] langs : Langs.langs) {
-            File langFile = new File("config/lang/" + langs[0] + ".properties");
+            final File langFile = new File("config/lang/" + langs[0] + ".properties");
             if (!langFile.exists()) {
                 try (InputStream in = Main.class
                         .getClassLoader()
@@ -60,7 +60,7 @@ public class Lang {
         FileInputStream fileInputStream;
         Properties prop = new Properties();
         try {
-            fileInputStream = new FileInputStream("config/lang/"+lang+".properties");
+            fileInputStream = new FileInputStream("config/lang/" + lang + ".properties");
             prop.load(fileInputStream);
             out = prop.getProperty(nameStr);
 

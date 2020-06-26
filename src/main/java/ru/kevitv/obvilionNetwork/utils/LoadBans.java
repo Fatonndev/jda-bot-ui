@@ -24,6 +24,7 @@ import java.util.List;
 public class LoadBans {
     public static void load() {
         List<List<String>> users = Database.createQueryRequestArray("SELECT * FROM bans;", 3);
+
         for (int i = 0; i < users.size(); i++) {
             List<String> userInfo = users.get(i);
 

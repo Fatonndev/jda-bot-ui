@@ -43,7 +43,9 @@ public class NodesUpdate {
                         Config.controller.update();
                     });
                 }
-            } catch (InterruptedException ignored) {}
+            } catch (InterruptedException ignored) {
+                
+            }
         });
         th.start();
 
@@ -55,37 +57,53 @@ public class NodesUpdate {
 
                     TimeUnit.SECONDS.sleep(Config.FastUpdateTime);
                     Platform.runLater(() -> {
+
                         try {
                             Config.controller.updConsole();
                         } catch (FileNotFoundException e) {
                             e.printStackTrace();
                         }
-                        Config.controller.ping.setText("Ping: "+Config.ping+" ms");
 
-                        Config.controller.arc1.setLength(180 - SystemInformation.cpu()*1.4);
-                        Config.controller.percentage1.setText(SystemInformation.cpu()+"%");
+                        Controller c = Config.controller;
 
-                        Config.controller.arc2.setLength(180 - (100 - SystemInformation.ram())*1.6);
-                        Config.controller.percentage2.setText(100 - SystemInformation.ram()+"%");
+                        c.ping.setText("Ping: " + Config.ping + " ms");
 
-                        Config.controller.arc3.setLength(180 - SystemInformation.hdd()*1.3);
-                        Config.controller.percentage3.setText(100 - SystemInformation.hdd()+"%");
+                        c.arc1.setLength(180 - SystemInformation.cpu() * 1.4);
+                        c.percentage1.setText(SystemInformation.cpu() + "%");
 
-                        Config.controller.arc4.setLength(180 - SystemInformation.network()*1.3);
-                        Config.controller.percentage4.setText(SystemInformation.network()+"%");
+                        c.arc2.setLength(180 - (100 - SystemInformation.ram()) * 1.6);
+                        c.percentage2.setText(100 - SystemInformation.ram() + "%");
 
-                        Config.controller.cpuName.setText("CPU: "+SystemInformation.getModelName());
-                        Config.controller.ramName.setText("RAM: "+SystemInformation.osMBean.getTotalPhysicalMemorySize()/1024/1024/1024+" GB, "+SystemInformation.getRamSpeed()+" MHz");
+                        c.arc3.setLength(180 - SystemInformation.hdd() * .3);
+                        c.percentage3.setText(100 - SystemInformation.hdd() + "%");
 
-                        if(series.getData().size() > 15) series.getData().remove(0);
+                        c.arc4.setLength(180 - SystemInformation.network() * 1.3);
+                        c.percentage4.setText(SystemInformation.network() + "%");
+
+                        c.cpuName.setText("CPU: "+SystemInformation.getModelName());
+                        c.ramName.setText("RAM: "+SystemInformation.osMBean.getTotalPhysicalMemorySize() / 1024 / 1024 / 1024 + " GB, "+SystemInformation.getRamSpeed()+" MHz");
+
+                        if(series.getData().size() > 15) {
+                            series.getData().remove(0);
+                        }
                         series.getData().add(new XYChart.Data(LocalDateTime.now().getMinute()+":"+LocalDateTime.now().getSecond(), SystemInformation.cpu()));
-                        if (Config.controller.cpuChart.getData().size() > 0) Config.controller.cpuChart.getData().set(0, series);
-                        else Config.controller.cpuChart.getData().addAll(series);
 
-                        if(ramSeries.getData().size() > 15) ramSeries.getData().remove(0);
-                        ramSeries.getData().add(new XYChart.Data(LocalDateTime.now().getMinute()+":"+LocalDateTime.now().getSecond(), 100-SystemInformation.ram()));
-                        if (Config.controller.ramChart.getData().size() > 0) Config.controller.ramChart.getData().set(0, ramSeries);
-                        else Config.controller.ramChart.getData().addAll(ramSeries);
+                        if (Config.controller.cpuChart.getData().size() > 0) {
+                            c.cpuChart.getData().set(0, series);
+                        } else {
+                            c.cpuChart.getData().addAll(series);
+                        }
+
+                        if(ramSeries.getData().size() > 15) {
+                            ramSeries.getData().remove(0);
+                        }
+
+                        ramSeries.getData().add(new XYChart.Data(LocalDateTime.now().getMinute() + ":" + LocalDateTime.now().getSecond(), 100-SystemInformation.ram()));
+                        if (Config.controller.ramChart.getData().size() > 0) {
+                            c.ramChart.getData().set(0, ramSeries);
+                        } else {
+                            c.ramChart.getData().addAll(ramSeries);
+                        }
 
                     });
                 }
