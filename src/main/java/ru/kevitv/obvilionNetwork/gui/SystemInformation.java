@@ -27,9 +27,9 @@ import java.lang.management.ManagementFactory;
 
 public class SystemInformation {
 
-    public static final int LINUX = 0;
-    public static final int WIN = 1;
-    public static final int OSX = 2;
+    public enum os {
+        LINUX, WIN, OSX
+    }
 
     public static OperatingSystemMXBean osMBean
             = (OperatingSystemMXBean) ManagementFactory.getOperatingSystemMXBean();
@@ -58,18 +58,20 @@ public class SystemInformation {
     public static int network() {
         return (int) (Config.ping / 20);
     }
-    public static int getOS() {
+
+    public static os getOS() {
         String OS = System.getProperty("os.name").toUpperCase();
         if (OS.contains("WIN")) {
-            return WIN;
+            return os.WIN;
         }
         else if (OS.contains("OS X")) {
-            return OSX;
+            return os.OSX;
         }
         else {
-            return LINUX;
+            return os.LINUX;
         }
     }
+
     public static String getModelName() {
         try {
             String lineRead;
