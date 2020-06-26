@@ -1,7 +1,7 @@
 > # Link to Discord support server
 > * https://discord.gg/BnZV6Gj
 
-# Java Dicsord Bot
+# Java Discord Bot
 This bot adds a lot of commands and a beautiful console with a control panel :З
 
 *Home page (list of servers)*
