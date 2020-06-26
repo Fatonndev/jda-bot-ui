@@ -24,11 +24,11 @@ import java.util.List;
 
 public class Database {
 
-    private static String dbHost = Config.get("db_ip");
-    private static String dbName = Config.get("db_name");
-    private static String dbUser = Config.get("db_user");
-    private static String dbPass = Config.get("db_pass");
-    private static String dbPort = Config.get("db_port");
+    final private static String dbHost = Config.get("db_ip");
+    final private static String dbName = Config.get("db_name");
+    final private static String dbUser = Config.get("db_user");
+    final private static String dbPass = Config.get("db_pass");
+    final private static String dbPort = Config.get("db_port");
 
     public static Connection getConnection() {
         long time = System.currentTimeMillis();

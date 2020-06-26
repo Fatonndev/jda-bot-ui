@@ -30,7 +30,7 @@ public class ConsoleOutput {
 
     public static PrintStream original;
 
-    public static void setOutput() throws FileNotFoundException {
+    public static void setOutput() {
         try {
             FileOutputStream f = new FileOutputStream(Config.logFileName);
             original = new PrintStream(System.out);
@@ -38,7 +38,6 @@ public class ConsoleOutput {
             System.setOut(new PrintStream(f));
             System.setErr(new PrintStream(f));
         } catch (FileNotFoundException e) {
-
         }
     }
 }
