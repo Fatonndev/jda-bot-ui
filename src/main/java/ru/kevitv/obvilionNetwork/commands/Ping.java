@@ -29,7 +29,7 @@ import java.awt.*;
 public class Ping extends Command {
 
     @Override
-    public void main(MessageReceivedEvent event, GuildInfo guildInfo, String[] args) {
+    public void run(MessageReceivedEvent event, GuildInfo guildInfo, String[] args) {
         long time = System.currentTimeMillis();
 
         event.getChannel().sendMessage("Pong!")

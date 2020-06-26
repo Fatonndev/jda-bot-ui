@@ -28,7 +28,7 @@ import java.awt.*;
 public class Avatar extends Command {
 
     @Override
-    public void main(MessageReceivedEvent event, GuildInfo guildInfo, String[] args) {
+    public void run(MessageReceivedEvent event, GuildInfo guildInfo, String[] args) {
 
         User user =
                 event.getMessage().getMentionedMembers().size() == 0 ?

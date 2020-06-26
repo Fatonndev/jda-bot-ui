@@ -34,7 +34,7 @@ public class Setlang extends Command {
     }
 
     @Override
-    public void main(MessageReceivedEvent event, GuildInfo guildInfo, String[] args) {
+    public void run(MessageReceivedEvent event, GuildInfo guildInfo, String[] args) {
         if (!event.getMember().hasPermission(Permission.ADMINISTRATOR)) {
             EmbedBuilder eb = new EmbedBuilder()
                     .setTitle(Lang.get("setlang.title", guildInfo.lang))

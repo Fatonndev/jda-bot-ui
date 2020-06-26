@@ -35,7 +35,7 @@ public class Langs extends Command {
     };
 
     @Override
-    public void main(MessageReceivedEvent event, GuildInfo guildInfo, String[] args){
+    public void run(MessageReceivedEvent event, GuildInfo guildInfo, String[] args){
 
         EmbedBuilder eb = new EmbedBuilder()
             .setTitle(Lang.get("langlist.title", guildInfo.lang))

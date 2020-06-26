@@ -66,6 +66,8 @@ public class Bot {
     }
 
     public static void addCommands(Command... commands1) {
-        commands = Arrays.asList(commands1);
+        for (Command command : commands1) {
+            commands.add(command);
+        }
     }
 }

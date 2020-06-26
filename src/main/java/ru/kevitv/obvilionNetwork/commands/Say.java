@@ -24,7 +24,7 @@ import ru.kevitv.obvilionNetwork.bot.GuildInfo;
 public class Say extends Command {
 
     @Override
-    public void main(MessageReceivedEvent event, GuildInfo guildInfo, String[] args) {
+    public void run(MessageReceivedEvent event, GuildInfo guildInfo, String[] args) {
         event.getChannel().sendMessage(
                 Lang.get("say", guildInfo.lang, event.getAuthor().getName()) +
                 event.getMessage().getContentRaw()

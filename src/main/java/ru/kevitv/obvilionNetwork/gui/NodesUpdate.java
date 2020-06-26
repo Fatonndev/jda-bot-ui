@@ -44,7 +44,7 @@ public class NodesUpdate {
                     });
                 }
             } catch (InterruptedException ignored) {
-                
+
             }
         });
         th.start();

@@ -19,12 +19,11 @@ package ru.kevitv.obvilionNetwork.bot;
 import net.dv8tion.jda.api.entities.ChannelType;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-import org.jetbrains.annotations.NotNull;
 
 public class MessageListener extends ListenerAdapter {
 
     @Override
-    public void onMessageReceived(@NotNull MessageReceivedEvent event) {
+    public void onMessageReceived(MessageReceivedEvent event) {
         if(event.getAuthor().isBot()) return;
 
         if (event.isFromType(ChannelType.PRIVATE)) {
@@ -39,7 +38,7 @@ public class MessageListener extends ListenerAdapter {
 
             for (Command command : Bot.commands) {
                 if(message.startsWith(guildInfo.prefix + command.getName())) {
-                    command.main(event, guildInfo, args);
+                    command.run(event, guildInfo, args);
                 }
             }
         }

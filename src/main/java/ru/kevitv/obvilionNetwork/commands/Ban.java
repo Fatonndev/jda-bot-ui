@@ -36,7 +36,7 @@ public class Ban extends Command {
     }
 
     @Override
-    public void main(MessageReceivedEvent event, GuildInfo guildInfo, String[] args) {
+    public void run(MessageReceivedEvent event, GuildInfo guildInfo, String[] args) {
 
         /* No pex to ban */
         if (!event.getMember().hasPermission(Permission.BAN_MEMBERS)) {

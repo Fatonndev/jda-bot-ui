@@ -20,5 +20,5 @@ import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 public abstract class Command {
     public abstract String getName();
-    public abstract void main(MessageReceivedEvent event, GuildInfo guildInfo, String[] args);
+    public abstract void run(MessageReceivedEvent event, GuildInfo guildInfo, String[] args);
 }

@@ -32,7 +32,7 @@ public class Log extends Command {
     }
 
     @Override
-    public void main(MessageReceivedEvent event, GuildInfo guildInfo, String[] args){
+    public void run(MessageReceivedEvent event, GuildInfo guildInfo, String[] args){
         event.getChannel()
                 .sendMessage(Lang.get("log.title", guildInfo.lang))
                 .addFile(new File("LOG.log"), new AttachmentOption[]{})

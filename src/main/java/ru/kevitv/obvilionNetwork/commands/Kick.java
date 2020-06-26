@@ -34,7 +34,7 @@ public class Kick extends Command {
     }
 
     @Override
-    public void main(MessageReceivedEvent event, GuildInfo guildInfo, String[] args) {
+    public void run(MessageReceivedEvent event, GuildInfo guildInfo, String[] args) {
 
         if (!event.getMember().hasPermission(Permission.KICK_MEMBERS)) {
             EmbedBuilder eb = new EmbedBuilder()

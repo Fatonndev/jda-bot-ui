@@ -35,7 +35,7 @@ public class Unban extends Command {
     }
 
     @Override
-    public void main(MessageReceivedEvent event, GuildInfo guildInfo, String[] args) {
+    public void run(MessageReceivedEvent event, GuildInfo guildInfo, String[] args) {
 
         /* No pex to unban */
         if (!event.getMember().hasPermission(Permission.BAN_MEMBERS)) {
