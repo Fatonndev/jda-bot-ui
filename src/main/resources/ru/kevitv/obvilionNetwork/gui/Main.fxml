@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1050.0" style="-fx-background-color: #02030A;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.kevitv.obvilionNetwork.gui.Controller">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="576.0" prefWidth="256.0" style="-fx-background-color: #05071F;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="73.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/favicon.png" />
+               </image>
+               <VBox.margin>
+                  <Insets bottom="10.0" top="50.0" />
+               </VBox.margin></ImageView>
+            <Label text="Obvilion Network Bot" textFill="#e7e5e5">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </Label>
+            <Button fx:id="btnStatistics" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="259.0" stylesheets="@style.css" text="Statistics" textFill="#e7e5e5">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icon-statistics.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button fx:id="btnSystemUsage" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="259.0" stylesheets="@style.css" text="System usage">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icon-systemusage.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button fx:id="btnCommands" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="259.0" stylesheets="@style.css" text="Commands">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icon-commands.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button fx:id="btnConsole" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="259.0" stylesheets="@style.css" text="Console">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icon-console.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button fx:id="btnPackages" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" stylesheets="@style.css" text="Database">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icon-database.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button fx:id="btnSettings" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" stylesheets="@style.css" text="Settings">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icon-properties.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button fx:id="btnExit" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="259.0" stylesheets="@style.css" text="Exit">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icon-exit.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+         </children>
+      </VBox>
+      <StackPane layoutX="258.0" prefHeight="576.0" prefWidth="793.0" style="-fx-background-color: #02030A;">
+         <children>
+            <Pane fx:id="pnlCommands" prefHeight="200.0" prefWidth="200.0" visible="false" />
+            <Pane fx:id="pnlSystemUsage" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #02030A;">
+               <children>
+                  <Pane prefHeight="81.0" prefWidth="793.0" style="-fx-background-color: #02030A;">
+                     <children>
+                        <Label layoutX="38.0" layoutY="24.0" text="System usage" textFill="#e7e5e5">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                     </children></Pane>
+
+                  <LineChart fx:id="cpuChart" animated="false" focusTraversable="true" layoutX="470.0" layoutY="99.0" legendVisible="false" prefHeight="162.0" prefWidth="316.0" style="-fx-vertical-grid-lines-visible: false;" stylesheets="@style.css" title="CPU load">
+                    <xAxis>
+                      <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis side="LEFT" upperBound="90.0" />
+                    </yAxis>
+                  </LineChart>
+                  <LineChart fx:id="ramChart" animated="false" layoutX="470.0" layoutY="245.0" prefHeight="162.0" prefWidth="316.0" style="-fx-vertical-grid-lines-visible: false;" stylesheets="@style.css" title="RAM load">
+                     <xAxis>
+                        <CategoryAxis side="BOTTOM" />
+                     </xAxis>
+                     <yAxis>
+                        <NumberAxis side="LEFT" upperBound="90.0" />
+                     </yAxis>
+                  </LineChart>
+
+                  <Circle fill="#1674cc" layoutX="98.0" layoutY="528.0" radius="81.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                  <Arc fx:id="arc1" fill="#060517" layoutX="98.0" layoutY="532.0" length="270.0" radiusX="83.0" radiusY="86.0" startAngle="-2" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
+                  <Circle fill="#02030a" layoutX="98.0" layoutY="534.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#02030a" height="92.0" layoutX="10.0" layoutY="534.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="183.0" />
+                  <Label layoutX="50.0" layoutY="533.0" text="CPU load" textFill="#a4a4a4">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="percentage1" layoutX="75.0" layoutY="501.0" text="0%" textAlignment="CENTER" textFill="#5d5d5d">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+
+                  <Circle fill="#1674cc" layoutX="291.0" layoutY="528.0" radius="81.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                  <Arc fx:id="arc2" fill="#060517" layoutX="291.0" layoutY="532.0" length="270.0" radiusX="83.0" radiusY="86.0" startAngle="-1" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
+                  <Circle fill="#02030a" layoutX="290.0" layoutY="531.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#02030a" height="92.0" layoutX="202.0" layoutY="531.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="173.0" />
+                  <Label layoutX="241.0" layoutY="533.0" text="RAM load" textFill="#a4a4a4">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="percentage2" layoutX="266.0" layoutY="501.0" text="0%" textAlignment="CENTER" textFill="#5d5d5d">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+
+                  <Circle fill="#1674cc" layoutX="485.0" layoutY="522.0" radius="81.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                  <Arc fx:id="arc3" fill="#060517" layoutX="485.0" layoutY="526.0" length="270.0" radiusX="83.0" radiusY="86.0" startAngle="-2" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
+                  <Circle fill="#02030a" layoutX="486.0" layoutY="528.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#02030a" height="92.0" layoutX="398.0" layoutY="528.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="183.0" />
+                  <Label layoutX="438.0" layoutY="533.0" text="HDD load" textFill="#a4a4a4">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="percentage3" layoutX="464.0" layoutY="499.0" text="0%" textAlignment="CENTER" textFill="#5d5d5d">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+
+                  <Circle fill="#1674cc" layoutX="688.0" layoutY="525.0" radius="81.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                  <Arc fx:id="arc4" fill="#060517" layoutX="688.0" layoutY="529.0" length="270.0" radiusX="83.0" radiusY="86.0" startAngle="-2" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
+                  <Circle fill="#02030a" layoutX="689.0" layoutY="531.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#02030a" height="92.0" layoutX="601.0" layoutY="531.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="183.0" />
+                  <Label fx:id="percentage4" layoutX="666.0" layoutY="502.0" text="0%" textAlignment="CENTER" textFill="#5d5d5d">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="626.0" layoutY="533.0" text="Network load" textFill="#a4a4a4">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+
+                  <VBox layoutX="11.0" layoutY="109.0" prefHeight="312.0" prefWidth="466.0">
+                     <children>
+                        <Label fx:id="cpuName" text="CPU: " textFill="#476cff">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Label>
+                        <Label fx:id="ramName" text="RAM:" textFill="#476cff">
+                           <font>
+                              <Font size="17.0" />
+                           </font></Label>
+                     </children>
+                  </VBox>
+               </children></Pane>
+            <Pane fx:id="pnlConsole" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <HBox prefHeight="92.0" prefWidth="793.0" style="-fx-background-color: #02030A;" />
+                  <Label fx:id="ping" layoutX="661.0" layoutY="16.0" prefHeight="49.0" prefWidth="124.0" text="Ping: wait..." textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="55.0" layoutY="16.0" prefHeight="42.0" prefWidth="132.0" text="Bot console" textFill="#e7e5e5">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Label>
+                  <HBox layoutX="-1.0" layoutY="81.0" prefHeight="495.0" prefWidth="796.0" style="-fx-background-color: #02030a; -fx-border-color: #02030a; -fx-border-radius: 3;" />
+                  <Label fx:id="output" alignment="TOP_LEFT" contentDisplay="TOP" ellipsisString="" layoutX="7.0" layoutY="88.0" prefHeight="489.0" prefWidth="783.0" textFill="#7a96ff" textOverrun="LEADING_ELLIPSIS" wrapText="true">
+                     <font>
+                        <Font name="Webdings" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="pnlStatistics" prefHeight="554.0" prefWidth="793.0">
+               <children>
+                  <HBox layoutY="81.0" prefHeight="495.0" prefWidth="793.0" style="-fx-background-color: #02030A;" />
+                  <HBox layoutX="1.0" prefHeight="81.0" prefWidth="796.0" style="-fx-background-color: #02030A;" />
+                  <TextField layoutX="590.0" layoutY="47.0" prefHeight="27.0" prefWidth="183.0" promptText="Search" style="-fx-background-color: #02030A; -fx-border-color: #B7C3D7; -fx-border-radius: 2em;" />
+                  <Label layoutX="57.0" layoutY="25.0" text="Servers statistics" textFill="#e7e5e5">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER_LEFT" layoutX="45.0" layoutY="72.0" prefHeight="92.0" prefWidth="661.0" spacing="50.0">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label fx:id="totalServers" text="Wait..." textFill="#2a73ff">
+                                 <font>
+                                    <Font name="System Bold" size="26.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Total Servers" textFill="#e7e5e5" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label fx:id="totalPlayers" text="Wait..." textFill="#2a73ff">
+                                 <font>
+                                    <Font name="System Bold" size="26.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Total Players" textFill="#e7e5e5" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label fx:id="premiumServers" text="Wait..." textFill="#2a73ff">
+                                 <font>
+                                    <Font name="System Bold" size="26.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Premium Servers" textFill="#e7e5e5" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label fx:id="timeOnline" text="Wait..." textFill="#2a73ff">
+                                 <font>
+                                    <Font name="System Bold" size="26.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Time online" textFill="#e7e5e5" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="45.0" layoutY="178.0" prefHeight="42.0" prefWidth="712.0" spacing="80.0" style="-fx-background-color: #02030A;">
+                     <children>
+                        <Label text="Server name" textFill="#e7e5e5">
+                           <HBox.margin>
+                              <Insets left="40.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label text="Link" textFill="#e7e5e5">
+                           <HBox.margin>
+                              <Insets left="7.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label text="Entry date" textFill="#e7e5e5">
+                           <HBox.margin>
+                              <Insets left="23.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label text="Members" textFill="#e7e5e5">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                        <Label text="Status" textFill="#e7e5e5">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <ScrollPane layoutX="14.0" layoutY="232.0" prefHeight="320.0" prefWidth="746.0" stylesheets="@style.css">
+                     <content>
+                        <VBox fx:id="pnItems" prefHeight="318.0" prefWidth="744.0" spacing="5.0" style="-fx-background-color: #02030A;">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </VBox>
+                     </content>
+                  </ScrollPane>
+                  <ImageView fitHeight="17.0" fitWidth="16.0" layoutX="749.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icon-search.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </children>
+      </StackPane>
+   </children>
+   <effect>
+      <DropShadow color="#1b1eeb" />
+   </effect>
+</AnchorPane>

@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+}
+
+version '0.1'
+
+task compileJar(type: Jar) {
+    from sourceSets.main.output
+
+    manifest {
+        attributes('Main-Class': 'ru.kevitv.obvilionNetwork.Main')
+    }
+
+    dependsOn configurations.runtimeClasspath
+    from {
+        configurations.runtimeClasspath.findAll { it.name.endsWith('jar') }.collect { zipTree(it) }
+    }
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    implementation "org.slf4j:slf4j-simple:1.6.1"
+    implementation "net.dv8tion:JDA:4.1.1_101"
+    implementation "mysql:mysql-connector-java:5.1.34"
+}
