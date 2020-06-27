@@ -114,7 +114,7 @@ public class Ban extends Command {
         long seconds = m*60 + h*60*60 + d*24*60*60;
         long out = (System.currentTimeMillis() / 1000) + seconds;
 
-        Database.createUpdateRequest("INSERT INTO `bans` (`id`, `guildId`, `timeEnd`) VALUES ('"+ member.getId() +"', '"+ guildInfo.id +"', '"+ out +"');");
+        Database.createUpdateRequest("INSERT INTO `bans` (`id`, `guildId`, `timeEnd`) VALUES ('" + member.getId() + "', '" + guildInfo.id + "', '" + out + "');");
 
         /* Permanent ban */
         if(seconds == 0) {

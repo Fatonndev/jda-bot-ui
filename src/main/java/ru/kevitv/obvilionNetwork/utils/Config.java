@@ -32,6 +32,7 @@ public class Config {
 
     public static String prefix = get("prefix");
     public static String logFileName = "LOG.log";
+    public static String[] args;
 
     public static boolean nogui = false;
 

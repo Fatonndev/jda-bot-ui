@@ -27,7 +27,7 @@ public class BanTimer {
             try {
                 Thread.sleep(timeSeconds * 1000);
                 Bot.bot.getGuildById(guildId).unban(userId).queue();
-                Database.createUpdateRequest("DELETE FROM bans WHERE (id='"+ userId +"' AND guildId='"+ guildId +"');");
+                Database.createUpdateRequest("DELETE FROM bans WHERE (id='" + userId + "' AND guildId='" + guildId + "');");
             } catch (InterruptedException ignored) {
 
             }

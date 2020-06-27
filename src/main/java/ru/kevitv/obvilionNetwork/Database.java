@@ -41,7 +41,7 @@ public class Database {
             }
 
         } catch (SQLException ex) {
-            System.out.println("DB:27 An error occurred. Info: " + ex.getMessage());
+            System.out.println("DB An error occurred. Info: " + ex.getMessage());
         }
         return getConnection();
     }
@@ -52,7 +52,7 @@ public class Database {
             int rs = connection.createStatement().executeUpdate(updateRequest);
             connection.close();
         } catch (SQLException e) {
-            System.out.println("DB:41 Error! Info: " + e.getMessage());
+            System.out.println("DB Error! Info: " + e.getMessage());
         }
     }
 
@@ -69,7 +69,7 @@ public class Database {
             connection.close();
             return result;
         } catch (SQLException e) {
-            System.out.println("DB:58 Error! Info: " + e.getMessage());
+            System.out.println("DB Error! Info: " + e.getMessage());
             return "null";
         }
     }
@@ -91,7 +91,7 @@ public class Database {
             connection.close();
             return result;
         } catch (SQLException e) {
-            System.out.println("DB:78 Error! Info: " + e.getMessage());
+            System.out.println("DB Error! Info: " + e.getMessage());
             return null;
         }
     }
@@ -109,7 +109,7 @@ public class Database {
             connection.close();
             return result;
         } catch (SQLException e) {
-            System.out.println("DB:96 Error! Info: " + e.getMessage());
+            System.out.println("DB Error! Info: " + e.getMessage());
             return 0;
         }
     }

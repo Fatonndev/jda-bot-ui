@@ -22,11 +22,12 @@ import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.entities.Activity.*;
 import ru.kevitv.obvilionNetwork.commands.*;
 import ru.kevitv.obvilionNetwork.gui.ErrorWindow;
+import ru.kevitv.obvilionNetwork.gui.GUI;
+import ru.kevitv.obvilionNetwork.gui.NodesUpdate;
 import ru.kevitv.obvilionNetwork.utils.Config;
 
 import javax.security.auth.login.LoginException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Bot {

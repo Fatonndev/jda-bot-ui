@@ -34,7 +34,11 @@ public class NodesGuilds {
     }
 
     public static Guild get() {
-        if(guilds.size() > number+1) number++; else number = 0;
+        if(guilds.size() > number + 1) {
+            number++;
+        } else {
+            number = 0;
+        }
         return guilds.get(number);
     }
 }

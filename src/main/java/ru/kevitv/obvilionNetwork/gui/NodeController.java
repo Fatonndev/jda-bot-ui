@@ -37,24 +37,39 @@ public class NodeController {
         Guild guild = NodesGuilds.get();
 
         // Дата добавления бота на сервер
-        date.setText(String.valueOf(Objects.requireNonNull(guild.getMember(Bot.bot.getSelfUser())).getTimeJoined()).substring(0,
-                String.valueOf(Objects.requireNonNull(guild.getMember(Bot.bot.getSelfUser())).getTimeJoined()).length() - 14));
+        date.setText(
+            String.valueOf(
+                Objects.requireNonNull(
+                    guild.getMember(Bot.bot.getSelfUser())
+                ).getTimeJoined()
+            ).substring(
+                0, String.valueOf(
+                        Objects.requireNonNull(
+                                guild.getMember(Bot.bot.getSelfUser())
+                        ).getTimeJoined()
+                    ).length() - 14
+            )
+        );
 
         // Обработка кол-ва участников
         String memb = String.valueOf(guild.getMembers().size());
+
         while (memb.length() < 4) {
             memb = memb + " ";
         }
+
         members.setText(memb);
 
         // Обработка имени сервера
         String name = guild.getName();
+
         while (name.length() < 14) {
             name = name + " ";
         }
         while (name.length() > 14) {
             name = name.substring(0, name.length() - 1);
         }
+
         serverName.setText(name);
 
         // Ссылка на приглашение на сервер (если есть)
