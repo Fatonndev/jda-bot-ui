@@ -114,7 +114,7 @@ public class Controller implements Initializable {
 
             } catch (IOException e) {
                 if (Config.nogui) {
-                    new ErrorWindow("Item.fxml not found: " + e.getLocalizedMessage());
+                    ErrorWindow.create("Item.fxml not found");
                 }
                 e.printStackTrace();
             }

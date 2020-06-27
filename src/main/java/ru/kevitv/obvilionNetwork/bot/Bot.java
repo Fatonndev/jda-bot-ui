@@ -22,8 +22,7 @@ import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.entities.Activity.*;
 import ru.kevitv.obvilionNetwork.commands.*;
 import ru.kevitv.obvilionNetwork.gui.ErrorWindow;
-import ru.kevitv.obvilionNetwork.gui.GUI;
-import ru.kevitv.obvilionNetwork.gui.NodesUpdate;
+import ru.kevitv.obvilionNetwork.gui.ErrorWindowController;
 import ru.kevitv.obvilionNetwork.utils.Config;
 
 import javax.security.auth.login.LoginException;
@@ -44,7 +43,7 @@ public class Bot {
             bot = builder.build();
         } catch (LoginException e) {
             if (!Config.nogui) {
-                new ErrorWindow("This token is invalid, edit it in config.properties");
+                ErrorWindow.create("Token is invalid!");
             }
             e.printStackTrace();
         }

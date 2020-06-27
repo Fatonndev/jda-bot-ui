@@ -18,6 +18,7 @@ package ru.kevitv.obvilionNetwork;
 
 import ru.kevitv.obvilionNetwork.bot.Bot;
 import ru.kevitv.obvilionNetwork.gui.ConsoleOutput;
+import ru.kevitv.obvilionNetwork.gui.ErrorWindow;
 import ru.kevitv.obvilionNetwork.gui.GUI;
 import ru.kevitv.obvilionNetwork.gui.NodesUpdate;
 import ru.kevitv.obvilionNetwork.utils.Config;

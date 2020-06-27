@@ -16,6 +16,7 @@
 
 package ru.kevitv.obvilionNetwork.utils;
 
+import javafx.stage.Stage;
 import ru.kevitv.obvilionNetwork.gui.Controller;
 
 import java.io.*;
@@ -37,6 +38,7 @@ public class Config {
     public static boolean nogui = false;
 
     public static Controller controller;
+    public static Stage primaryStage;
 
     public static void init() {
         // Создаём конфиг файлы если не существуют

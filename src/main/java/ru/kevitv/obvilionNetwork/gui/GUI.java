@@ -49,6 +49,8 @@ public class GUI extends Application {
         });
 
         primaryStage.show();
+
+        Config.primaryStage = primaryStage;
     }
 
 

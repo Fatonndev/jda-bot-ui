@@ -56,6 +56,7 @@ public class NodesUpdate {
                     Config.ping = Bot.bot.getGatewayPing();
 
                     TimeUnit.SECONDS.sleep(Config.FastUpdateTime);
+
                     Platform.runLater(() -> {
 
                         try {

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="250.0" prefWidth="600.0" style="-fx-background-color: #02030A;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.kevitv.obvilionNetwork.gui.ErrorWindowController">
+   <children>
+      <Label fx:id="consoleText" alignment="TOP_LEFT" layoutX="136.0" layoutY="38.0" prefHeight="208.0" prefWidth="456.0" text="Console here" textFill="#9280b0" />
+      <Button fx:id="okButton" defaultButton="true" layoutX="514.0" layoutY="208.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="72.0" style="-fx-background-color: #171829; -fx-border-radius: 0;" text="OK" textFill="WHITE">
+         <font>
+            <Font name="Calibri" size="15.0" />
+         </font></Button>
+      <Pane prefHeight="250.0" prefWidth="129.0" style="-fx-background-color: #0c0c21;">
+         <children>
+            <Label fx:id="errorInfo" alignment="TOP_LEFT" layoutX="8.0" layoutY="39.0" prefHeight="211.0" prefWidth="121.0" text="Error code: " textFill="#aca2e1">
+               <font>
+                  <Font name="Fira Code Regular" size="12.0" />
+               </font>
+            </Label>
+         </children></Pane>
+      <Pane prefHeight="36.0" prefWidth="600.0" style="-fx-background-color: #141436;">
+         <children>
+            <Label layoutX="501.0" layoutY="10.0" text="Oops! It's error :|" textFill="#e8e8e8">
+               <font>
+                  <Font name="Candara" size="12.0" />
+               </font></Label>
+            <Label layoutX="9.0" layoutY="9.0" text="Debug:" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="135.0" layoutY="10.0" text="Console:" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children></Pane>
+   </children>
+</AnchorPane>
