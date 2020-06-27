@@ -1,0 +1,4 @@
+config/
+build/
+.idea/
+LOG.log
