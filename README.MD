@@ -23,4 +23,4 @@ Enjoy the bot
 ## Obvilion Bot 1.1 Plans
 - [ ] Clear command
 - [ ] Commands GUI
-- [ ] Ping = prefix
+- [x] Mention = prefix

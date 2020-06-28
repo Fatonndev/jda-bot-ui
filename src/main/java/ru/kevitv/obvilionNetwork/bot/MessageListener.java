@@ -17,6 +17,7 @@
 package ru.kevitv.obvilionNetwork.bot;
 
 import net.dv8tion.jda.api.entities.ChannelType;
+import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
@@ -31,13 +32,24 @@ public class MessageListener extends ListenerAdapter {
         } else {
             GuildInfo guildInfo = new GuildInfo(event);
 
-            String message = event.getMessage().getContentDisplay();
-            if(!message.startsWith(guildInfo.prefix)) return;
+            String message = event.getMessage().getContentStripped();
+
+            if(!message.startsWith(guildInfo.prefix)) {
+                Member member = event.getMessage().getMentionedMembers().size() == 1 ? event.getMessage().getMentionedMembers().get(0) : null;
+                if(!event.getMessage().getMentionedMembers().get(0).getId().equals(Bot.bot.getSelfUser().getId())) {
+                    return;
+                } else {
+                    message = message.replace("@" + Bot.bot.getSelfUser().getName(), "").replaceAll(" ", "");
+                }
+            } else {
+                message = message.replace(guildInfo.prefix, "");
+            }
+
             String[] args = event.getMessage().getContentRaw()
                     .split(" ");
 
             for (Command command : Bot.commands) {
-                if(message.startsWith(guildInfo.prefix + command.getName())) {
+                if(message.startsWith(command.getName())) {
                     command.run(event, guildInfo, args);
                 }
             }
