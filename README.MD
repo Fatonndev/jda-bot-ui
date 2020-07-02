@@ -21,6 +21,22 @@ Start the jar. <br>
 Enjoy the bot
 
 ## Obvilion Bot 1.1 Plans
-- [ ] Clear command
-- [ ] Commands GUI
+- [ ] Music
+    - [x] Play / stop / skip
+    - [x] Queue / np
+    - [x] Join / leave
+    - [ ] Volume / bass
+    - [ ] Search
+    - [ ] Pause
+- [ ] Commands
+    - [ ] Clear messages
+    - [ ] Warnings
+    - [ ] Mute / unmute
+- [ ] GUI
+    - [x] Statistics GUI
+    - [x] Sustem Usage GUI
+    - [ ] Commands GUI
+    - [x] Console GUI
+    - [ ] Database GUI
+    - [ ] Settings GUI
 - [x] Mention = prefix
