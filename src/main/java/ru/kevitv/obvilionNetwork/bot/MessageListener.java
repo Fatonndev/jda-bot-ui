@@ -50,7 +50,7 @@ public class MessageListener extends ListenerAdapter {
                     .split(" ");
 
             for (Command command : Bot.commands) {
-                if(message.startsWith(command.getName())) {
+                if(message.startsWith(command.getName() + " ") || message.equals(command.getName())) {
                     command.run(event, guildInfo, args);
                 }
             }

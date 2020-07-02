@@ -1,5 +1,6 @@
 package ru.kevitv.obvilionNetwork.commands.music;
 
+import net.dv8tion.jda.api.entities.GuildVoiceState;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import ru.kevitv.obvilionNetwork.bot.Command;
 import ru.kevitv.obvilionNetwork.bot.GuildInfo;
@@ -17,6 +18,12 @@ public class Stop extends Command {
     public void run(MessageReceivedEvent event, GuildInfo guildInfo, String[] args) {
         PlayerManager playerManager = PlayerManager.getInstance();
         GuildMusicManager musicManager = playerManager.getGuildMusicManager(event.getGuild());
+
+        GuildVoiceState memberVoiceState = event.getMember().getVoiceState();
+        if (!memberVoiceState.inVoiceChannel()) {
+            event.getChannel().sendMessage(Lang.get("join.noContains", guildInfo.lang)).queue();
+            return;
+        }
 
         musicManager.scheduler.getQueue().clear();
         musicManager.player.stopTrack();

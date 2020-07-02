@@ -99,12 +99,24 @@ public class PlayerManager {
 
             @Override
             public void noMatches() {
-                event.getChannel().sendMessage("Nothing found by " + trackUrl).queue();
+                EmbedBuilder eb = new EmbedBuilder()
+                        .setTitle(Lang.get("play.title", gi.lang))
+                        .setColor(new Color(19, 167, 246))
+                        .setDescription(Lang.get("play.noMatches", gi.lang, trackUrl))
+                        .setFooter(Lang.get("commandRequested", gi.lang, event.getAuthor().getName()), event.getAuthor().getAvatarUrl());
+
+                event.getChannel().sendMessage(eb.build()).queue();
             }
 
             @Override
             public void loadFailed(FriendlyException exception) {
-                event.getChannel().sendMessage("Could not play: " + exception.getMessage()).queue();
+                EmbedBuilder eb = new EmbedBuilder()
+                        .setTitle(Lang.get("play.title", gi.lang))
+                        .setColor(new Color(19, 167, 246))
+                        .setDescription(Lang.get("play.loadFailed", gi.lang, exception.getMessage()))
+                        .setFooter(Lang.get("commandRequested", gi.lang, event.getAuthor().getName()), event.getAuthor().getAvatarUrl());
+
+                event.getChannel().sendMessage(eb.build()).queue();
             }
         });
     }
@@ -119,15 +131,6 @@ public class PlayerManager {
         }
 
         return INSTANCE;
-    }
-
-    public boolean isURL(String link) {
-        try {
-            new URL(link);
-            return true;
-        } catch (MalformedURLException e) {
-            return false;
-        }
     }
 
 

@@ -2,6 +2,7 @@ package ru.kevitv.obvilionNetwork.commands.music;
 
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayer;
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.GuildVoiceState;
 import net.dv8tion.jda.api.entities.MessageChannel;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import ru.kevitv.obvilionNetwork.bot.Command;
@@ -23,6 +24,12 @@ public class Volume extends Command {
         PlayerManager manager = PlayerManager.getInstance();
         AudioPlayer player = manager.getGuildMusicManager(event.getGuild()).player;
 
+        GuildVoiceState memberVoiceState = event.getMember().getVoiceState();
+        if (!memberVoiceState.inVoiceChannel()) {
+            channel.sendMessage(Lang.get("join.noContains", guildInfo.lang)).queue();
+            return;
+        }
+
         int volume;
 
         try {
@@ -37,7 +44,7 @@ public class Volume extends Command {
             return;
         }
 
-        if(volume > 200) {
+        if(volume > 200 || volume < 0) {
             EmbedBuilder eb = new EmbedBuilder()
                     .setTitle(Lang.get("volume.title", guildInfo.lang))
                     .setDescription(Lang.get("volume.big", guildInfo.lang))
@@ -58,6 +65,7 @@ public class Volume extends Command {
                 .setFooter(Lang.get("commandRequested", guildInfo.lang, event.getAuthor().getName()), event.getAuthor().getAvatarUrl());
 
         player.setVolume(volume);
+
         channel.sendMessage(eb.build()).queue();
     }
 }

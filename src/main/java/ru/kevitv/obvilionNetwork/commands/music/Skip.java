@@ -1,6 +1,7 @@
 package ru.kevitv.obvilionNetwork.commands.music;
 
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayer;
+import net.dv8tion.jda.api.entities.GuildVoiceState;
 import net.dv8tion.jda.api.entities.MessageChannel;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import ru.kevitv.obvilionNetwork.bot.Command;
@@ -24,6 +25,12 @@ public class Skip extends Command {
         GuildMusicManager musicManager = playerManager.getGuildMusicManager(event.getGuild());
         TrackScheduler scheduler = musicManager.scheduler;
         AudioPlayer player = musicManager.player;
+
+        GuildVoiceState memberVoiceState = event.getMember().getVoiceState();
+        if (!memberVoiceState.inVoiceChannel()) {
+            channel.sendMessage(Lang.get("join.noContains", guildInfo.lang)).queue();
+            return;
+        }
 
         if (player.getPlayingTrack() == null) {
             channel.sendMessage(Lang.get("skip.no", guildInfo.lang)).queue();
