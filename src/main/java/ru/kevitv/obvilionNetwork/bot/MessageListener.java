@@ -35,6 +35,7 @@ public class MessageListener extends ListenerAdapter {
             String message = event.getMessage().getContentStripped();
 
             if(!message.startsWith(guildInfo.prefix)) {
+                if(event.getMessage().getMentionedMembers().size() == 0) return;
                 Member member = event.getMessage().getMentionedMembers().size() == 1 ? event.getMessage().getMentionedMembers().get(0) : null;
                 if(!event.getMessage().getMentionedMembers().get(0).getId().equals(Bot.bot.getSelfUser().getId())) {
                     return;

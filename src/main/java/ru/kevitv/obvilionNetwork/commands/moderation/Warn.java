@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package ru.kevitv.obvilionNetwork.commands;
+package ru.kevitv.obvilionNetwork.commands.moderation;
 
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.Permission;

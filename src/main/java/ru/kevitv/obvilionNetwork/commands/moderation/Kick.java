@@ -14,24 +14,23 @@
  * limitations under the License.
  */
 
-package ru.kevitv.obvilionNetwork.commands;
+package ru.kevitv.obvilionNetwork.commands.moderation;
 
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
-import ru.kevitv.obvilionNetwork.Database;
 import ru.kevitv.obvilionNetwork.utils.Lang;
 import ru.kevitv.obvilionNetwork.bot.Command;
 import ru.kevitv.obvilionNetwork.bot.GuildInfo;
 
 import java.awt.*;
 
-public class Unwarn extends Command {
+public class Kick extends Command {
 
     @Override
     public String getName() {
-        return "unwarn";
+        return "kick";
     }
 
     @Override
@@ -39,7 +38,7 @@ public class Unwarn extends Command {
 
         if (!event.getMember().hasPermission(Permission.KICK_MEMBERS)) {
             EmbedBuilder eb = new EmbedBuilder()
-                    .setTitle(Lang.get("unwarn.title", guildInfo.lang))
+                    .setTitle(Lang.get("kick.title", guildInfo.lang))
                     .setDescription(Lang.get("nopex", guildInfo.lang, Lang.get("pex.kick", guildInfo.lang)))
                     .setColor(new Color(19, 167, 246))
                     .setFooter(Lang.get("commandRequested", guildInfo.lang, event.getAuthor().getName()), event.getAuthor().getAvatarUrl());
@@ -47,10 +46,10 @@ public class Unwarn extends Command {
             return;
         }
 
-        if(event.getMessage().getMentionedMembers().size() != 1) {
+        if (event.getMessage().getMentionedMembers().size() != 1) {
             EmbedBuilder eb = new EmbedBuilder()
-                    .setTitle(Lang.get("unwarn.title", guildInfo.lang))
-                    .setDescription(Lang.get("unwarn.err", guildInfo.lang, guildInfo.prefix))
+                    .setTitle(Lang.get("kick.title", guildInfo.lang))
+                    .setDescription(Lang.get("kick.err", guildInfo.lang, guildInfo.prefix))
                     .setColor(new Color(19, 167, 246))
                     .setFooter(Lang.get("commandRequested", guildInfo.lang, event.getAuthor().getName()), event.getAuthor().getAvatarUrl());
             event.getChannel().sendMessage(eb.build()).queue();
@@ -59,24 +58,10 @@ public class Unwarn extends Command {
 
         Member member = event.getMessage().getMentionedMembers().get(0);
 
-        if(member.hasPermission(Permission.KICK_MEMBERS)) {
+        if (member.hasPermission(Permission.KICK_MEMBERS)) {
             EmbedBuilder eb = new EmbedBuilder()
-                    .setTitle(Lang.get("unwarn.title", guildInfo.lang))
-                    .setDescription(Lang.get("unwarn.nopex", guildInfo.lang, member.getNickname(), Lang.get("pex.kick", guildInfo.lang)))
-                    .setColor(new Color(19, 167, 246))
-                    .setFooter(Lang.get("commandRequested", guildInfo.lang, event.getAuthor().getName()), event.getAuthor().getAvatarUrl());
-            event.getChannel().sendMessage(eb.build()).queue();
-            return;
-        }
-
-        int warns = Database.createQueryRequestInt("SELECT warns FROM users WHERE (id='"+member.getId()+"' AND guildId='" + member.getGuild().getId() + "');");
-
-        if(warns>0) {
-            warns--;
-        } else {
-            EmbedBuilder eb = new EmbedBuilder()
-                    .setTitle(Lang.get("unwarn.title", guildInfo.lang))
-                    .setDescription(Lang.get("unwarn.few", guildInfo.lang, member.getNickname()))
+                    .setTitle(Lang.get("kick.title", guildInfo.lang))
+                    .setDescription(Lang.get("kick.nopex", guildInfo.lang, member.getEffectiveName(), Lang.get("pex.kick", guildInfo.lang)))
                     .setColor(new Color(19, 167, 246))
                     .setFooter(Lang.get("commandRequested", guildInfo.lang, event.getAuthor().getName()), event.getAuthor().getAvatarUrl());
             event.getChannel().sendMessage(eb.build()).queue();
@@ -94,15 +79,14 @@ public class Unwarn extends Command {
             reason = Lang.get("reason.none", guildInfo.lang);
 
         EmbedBuilder eb = new EmbedBuilder()
-                .setTitle(Lang.get("unwarn.title", guildInfo.lang))
-                .addField(Lang.get("unwarn.removed", guildInfo.lang), member.getNickname(), false)
-                .addField(Lang.get("warn.list", guildInfo.lang), Lang.get("warn.list1", guildInfo.lang, warns+"", guildInfo.maxwarns+""), false)
+                .setTitle(Lang.get("kick.title", guildInfo.lang))
+                .addField(Lang.get("kick.ok", guildInfo.lang), member.getNickname(), false)
                 .addField(Lang.get("warn.reason", guildInfo.lang), reason, false)
                 .setColor(new Color(19, 167, 246))
                 .setFooter(Lang.get("commandRequested", guildInfo.lang, event.getAuthor().getName()), event.getAuthor().getAvatarUrl());
 
         event.getChannel().sendMessage(eb.build()).queue();
 
-        Database.createUpdateRequest("UPDATE users SET warns=" + warns + " WHERE (guildId='" + guildInfo.id + "' AND id='" + member.getId() + "');");
+        member.kick().reason(reason).queue();
     }
 }

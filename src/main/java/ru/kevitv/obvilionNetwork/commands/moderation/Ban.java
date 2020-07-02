@@ -14,13 +14,14 @@
  * limitations under the License.
  */
 
-package ru.kevitv.obvilionNetwork.commands;
+package ru.kevitv.obvilionNetwork.commands.moderation;
 
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import ru.kevitv.obvilionNetwork.Database;
+import ru.kevitv.obvilionNetwork.commands.Langs;
 import ru.kevitv.obvilionNetwork.utils.Lang;
 import ru.kevitv.obvilionNetwork.bot.Command;
 import ru.kevitv.obvilionNetwork.bot.GuildInfo;

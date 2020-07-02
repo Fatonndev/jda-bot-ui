@@ -21,12 +21,14 @@ import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.entities.Activity.*;
 import ru.kevitv.obvilionNetwork.commands.*;
+import ru.kevitv.obvilionNetwork.commands.moderation.*;
+import ru.kevitv.obvilionNetwork.commands.music.*;
 import ru.kevitv.obvilionNetwork.gui.ErrorWindow;
-import ru.kevitv.obvilionNetwork.gui.ErrorWindowController;
 import ru.kevitv.obvilionNetwork.utils.Config;
 
 import javax.security.auth.login.LoginException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Bot {
@@ -61,13 +63,12 @@ public class Bot {
     public static void loadCommands() {
         addCommands(
             new Avatar(), new Ban(), new Kick(), new Langs(), new Log(), new Ping(), new Say(), new Setlang(),
-            new Setmaxwarns(), new Setprefix(), new Unban(), new Unwarn(), new Warn()
+            new Setmaxwarns(), new Setprefix(), new Unban(), new Unwarn(), new Warn(), new Join(), new Leave(),
+            new Play(), new Stop(), new Skip(), new Nowplaying(), new Queue(), new Volume()
         );
     }
 
-    public static void addCommands(Command... commands1) {
-        for (Command command : commands1) {
-            commands.add(command);
-        }
+    public static void addCommands(Command... cmds) {
+        Collections.addAll(commands, cmds);
     }
 }
